@@ -6,10 +6,12 @@ import punkhead from './assets/owner/punkhead.png'
 import CardCollection from './components/CardCollection';
 import axios from 'axios'
 import Punklist from './components/Punklist';
+import Main from './components/Main';
 
 
 function App() {
    const [punkListData, setpunkListData] = useState([]);
+   const [selectedPunk, setSelectedPunk] =useState(0);
 
    useEffect(() => {
       const getMyNfts = async () => {
@@ -25,7 +27,16 @@ function App() {
   return (
   <div className='app'>
     <Header/>
-    <div className='punklist' style={{display:'flex'}}><Punklist punkListData={punkListData}/></div>
+    {
+      punkListData.length > 0 && (
+      <>
+        <Main punkListData={punkListData} selectedPunk={selectedPunk}/>
+    <div className='punklist' style={{display:'flex'}}>
+    <Punklist punkListData={punkListData} setSelectedPunk={setSelectedPunk} /></div>
+      </>
+      )
+    }
+    
   </div> 
   );
 }
