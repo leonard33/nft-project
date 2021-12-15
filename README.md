@@ -1,1 +1,2 @@
-# nft-project
+# nft-project REACT JS METAMASK THIRDWEB.
+A WEB 3.0 PROJECT
